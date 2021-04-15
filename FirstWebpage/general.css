@@ -1,0 +1,191 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 1080px;
+  font-family: Tahoma, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  color: dimgray;
+}
+/* 將所有的a標簽的文字改成dimgray和更改字體(因爲在body設定不會影響到a標簽) */
+a {
+  color: dimgray;
+  font-family: Tahoma, Verdana, sans-serif;
+}
+/* 正式進入主頁的内容 */
+/* header設置爲常駐在熒幕上方,並設置了z-index保證會覆蓋掉該區域的内容 */
+/* 用flex排版是爲了更方便與Logo區分開來 */
+header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  z-index: 10;
+  background-color: ghostwhite;
+  position: fixed;
+  min-width: 1080px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#logo-div img {
+  padding-left: 2em;
+  width: 6em;
+}
+/* 一級菜單 */
+.primary-menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 9;
+  flex-shrink: 9;
+}
+/* 設置最後一個項目離熒幕邊緣有點距離 */
+.primary-menu :last-child {
+  margin-right: 5em;
+}
+.primary-menu li {
+  margin: 10pt;
+}
+.primary-menu a {
+  font-size: 1.3em;
+  text-decoration: none;
+}
+/* 當話術移到一級菜單上顯示二級菜單 */
+.primary-menu li:hover .second-menu {
+  display: block;
+  position: absolute;
+  background-color: ghostwhite;
+}
+.second-menu {
+  list-style-type: none;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+.second-menu li {
+  margin: 0.7em;
+}
+.second-menu li a {
+  text-decoration: none;
+  font-size: 1.1em;
+}
+/* 因爲之前primary menu有設置last-child對右邊的margin,這裏調整回來與先前的二級菜單對齊 */
+.second-menu :last-child {
+  margin: 0.7em;
+}
+#background-video {
+  position: relative;
+  margin-top: 7.2em;
+  z-index: -50;
+}
+#background-video video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 1080px;
+  width: 100%;
+}
+/* 常駐在左上角 */
+#pop-up {
+  width: 640px;
+  position: absolute;
+  color: white;
+  top: 8em;
+  left: 0.6em;
+  background-color: slategray;
+  padding: 2em;
+  opacity: 0.8;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  min-width: 1080px;
+  margin: 2em;
+}
+#relative-footer {
+  position: relative;
+  bottom: 0;
+  width: 90%;
+  min-width: 1080px;
+  margin: 2em;
+}
+/* 取名字叫nofunc是因爲所有鏈接點了都沒有功能(企業信息/隱私政策......) */
+#nofunc ul {
+  list-style-type: none;
+  padding: 0;
+}
+#nofunc ul li {
+  display: inline;
+  margin-right: 3em;
+}
+#nofunc a {
+  text-decoration: none;
+}
+#myinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+#myinfo div {
+  margin-right: 2em;
+}
+/* 以下為About Us頁面的一些細項設置 */
+#about-video {
+  position: relative;
+  margin-top: 7.2em;
+}
+#about-video video {
+  width: 100%;
+}
+#about-word {
+  position: relative;
+  margin: 0;
+  padding: 1em 3em;
+  background-color: lightgray;
+  opacity: 0.8;
+  font-size: 1.2em;
+}
+#about-picture {
+  position: relative;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2em;
+}
+#about-picture img {
+  margin: 1em;
+  opacity: 1;
+}
+/* 一下全部為Login/Sign Up頁面所用 */
+#login-panel {
+  position: fixed;
+  width: 24em;
+  height: 22em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: lightgray;
+  margin-top: 10%;
+  margin-left: 34%;
+  padding: 3em;
+  padding-top: 2em;
+  background-color: slategray;
+  opacity: 0.8;
+  z-index: 8;
+}
+#login-background {
+  position: relative;
+  z-index: -20;
+}
+#login-background img {
+  width: 100%;
+  min-width: 1080px;
+  opacity: 0.5;
+}

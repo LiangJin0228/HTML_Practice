@@ -1,0 +1,484 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 1080px;
+  font-family: Tahoma, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  color: dimgray;
+}
+/* 將所有的a標簽的文字改成dimgray和更改字體(因爲在body設定不會影響到a標簽) */
+a {
+  color: dimgray;
+  font-family: Tahoma, Verdana, sans-serif;
+}
+/* 用一個大容器包裹開啓首頁時的動畫,boot方法設定成一定時間后將該動畫隱藏到最底層 */
+/* 沒有對個別瀏覽器做適配 */
+.cssload-fond {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 100;
+  position: fixed;
+  animation: boot 6s ease-out forwards;
+}
+/* 這裏做出球球旋轉的效果 */
+.cssload-container-general {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  animation: cssload-animball_two 6s linear forwards;
+  -o-animation: cssload-animball_two 6s linear forwards;
+  -ms-animation: cssload-animball_two 6s linear forwards;
+  -webkit-animation: cssload-animball_two 6s linear forwards;
+  -moz-animation: cssload-animball_two 6s linear forwards;
+  width: 43px;
+  height: 43px;
+}
+.cssload-internal {
+  width: 43px;
+  height: 43px;
+  position: absolute;
+}
+.cssload-ballcolor {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+}
+/* 這裏做出球球位移和透明度改變的效果 */
+.cssload-ball_1,
+.cssload-ball_2,
+.cssload-ball_3,
+.cssload-ball_4 {
+  position: absolute;
+  animation: cssload-animball_one 6s linear forwards;
+  -o-animation: cssload-animball_one 6s linear forwards;
+  -ms-animation: cssload-animball_one 6s linear forwards;
+  -webkit-animation: cssload-animball_one 6s linear forwards;
+  -moz-animation: cssload-animball_one 6s linear forwards;
+}
+.cssload-ball_1 {
+  background-color: rgb(203, 32, 37);
+  top: 0;
+  left: 0;
+}
+.cssload-ball_2 {
+  background-color: rgb(248, 179, 52);
+  top: 0;
+  left: 23px;
+}
+.cssload-ball_3 {
+  background-color: rgb(0, 160, 150);
+  top: 23px;
+  left: 0;
+}
+.cssload-ball_4 {
+  background-color: rgb(151, 191, 13);
+  top: 23px;
+  left: 23px;
+}
+/* 所有開啓網頁的動畫放在這裏方便修改(其中有許多代碼是一樣的,只是適配不同瀏覽器) */
+@keyframes boot {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: -100;
+  }
+}
+@keyframes cssload-animball_one {
+  0% {
+    position: absolute;
+  }
+  50% {
+    top: 12px;
+    left: 12px;
+    position: absolute;
+    opacity: 0.5;
+  }
+  100% {
+    position: absolute;
+  }
+}
+@-o-keyframes cssload-animball_one {
+  0% {
+    position: absolute;
+  }
+  50% {
+    top: 12px;
+    left: 12px;
+    position: absolute;
+    opacity: 0.5;
+  }
+  100% {
+    position: absolute;
+  }
+}
+@-ms-keyframes cssload-animball_one {
+  0% {
+    position: absolute;
+  }
+  50% {
+    top: 12px;
+    left: 12px;
+    position: absolute;
+    opacity: 0.5;
+  }
+  100% {
+    position: absolute;
+  }
+}
+@-webkit-keyframes cssload-animball_one {
+  0% {
+    position: absolute;
+  }
+  50% {
+    top: 12px;
+    left: 12px;
+    position: absolute;
+    opacity: 0.5;
+  }
+  100% {
+    position: absolute;
+  }
+}
+@-moz-keyframes cssload-animball_one {
+  0% {
+    position: absolute;
+  }
+  50% {
+    top: 12px;
+    left: 12px;
+    position: absolute;
+    opacity: 0.5;
+  }
+  100% {
+    position: absolute;
+  }
+}
+@keyframes cssload-animball_two {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+  }
+}
+@-o-keyframes cssload-animball_two {
+  0% {
+    -o-transform: rotate(0deg) scale(1);
+  }
+  50% {
+    -o-transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    -o-transform: rotate(720deg) scale(1);
+  }
+}
+@-ms-keyframes cssload-animball_two {
+  0% {
+    -ms-transform: rotate(0deg) scale(1);
+  }
+  50% {
+    -ms-transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    -ms-transform: rotate(720deg) scale(1);
+  }
+}
+@-webkit-keyframes cssload-animball_two {
+  0% {
+    -webkit-transform: rotate(0deg) scale(1);
+  }
+  50% {
+    -webkit-transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    -webkit-transform: rotate(720deg) scale(1);
+  }
+}
+@-moz-keyframes cssload-animball_two {
+  0% {
+    -moz-transform: rotate(0deg) scale(1);
+  }
+  50% {
+    -moz-transform: rotate(360deg) scale(1.3);
+  }
+  100% {
+    -moz-transform: rotate(720deg) scale(1);
+  }
+}
+
+/* 正式進入主頁的内容 */
+/* header設置爲常駐在熒幕上方,並設置了z-index保證會覆蓋掉該區域的内容 */
+/* 用flex排版是爲了更方便與Logo區分開來 */
+header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  z-index: 10;
+  background-color: ghostwhite;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#logo-div img {
+  padding-left: 2em;
+  width: 6em;
+}
+/* 一級菜單 */
+.primary-menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 9;
+  flex-shrink: 9;
+}
+/* 設置最後一個項目離熒幕邊緣有點距離 */
+.primary-menu :last-child {
+  margin-right: 5em;
+}
+.primary-menu li {
+  margin: 10pt;
+}
+.primary-menu a {
+  font-size: 1.3em;
+  text-decoration: none;
+}
+/* 當話術移到一級菜單上顯示二級菜單 */
+.primary-menu li:hover .second-menu {
+  display: block;
+  position: absolute;
+  background-color: ghostwhite;
+}
+.second-menu {
+  list-style-type: none;
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+.second-menu li {
+  margin: 0.7em;
+}
+.second-menu li a {
+  text-decoration: none;
+  font-size: 1.1em;
+}
+/* 因爲之前primary menu有設置last-child對右邊的margin,這裏調整回來與先前的二級菜單對齊 */
+.second-menu :last-child {
+  margin: 0.7em;
+}
+/* 從打開網頁一開始照片就無限循環播放 */
+/* 用一個大容器來裝,位置設置成relative,裏面再用absolute的position,這樣就適應了RWD */
+.slideshow {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  margin-top: 4em;
+  margin-bottom: 57%;
+}
+.slideshow:hover {
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.slideshow:hover .info {
+  opacity: 0.8;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+}
+/* 放在slideshow母容器裏的子容器,可以看到用absolute的定位將它固定在母容器的左上角 */
+.slides {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-animation: round 25s linear infinite;
+  animation: round 25s linear infinite;
+}
+.imgbox {
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+.imgbox::before {
+  content: "";
+  display: inline-block;
+}
+/* 所有的媒體增加width屬性,就可以適應螢幕大小 */
+.imgbox img {
+  width: 100%;
+}
+.info {
+  opacity: 0;
+  background-color: gray;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0.2%;
+  width: 100%;
+  font-size: 2em;
+  line-height: 2.5em;
+  color: lightgray;
+  z-index: 2;
+  -webkit-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+/* 照片展示的動畫效果 */
+@-webkit-keyframes round {
+  4% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  20% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  24% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+@keyframes round {
+  4% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  20% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  24% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+/* 一個照片的播放時間為5秒,總共5張照片,共25秒 */
+/* 第一張照片在播的時候,其他的照片不顯示,直到五秒后第二張照片才顯示(可以看到第二張5秒后才播放),以此類推 */
+.slideshow div:nth-child(5) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.slideshow div:nth-child(4) {
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+}
+.slideshow div:nth-child(3) {
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
+}
+.slideshow div:nth-child(2) {
+  -webkit-animation-delay: 15s;
+  animation-delay: 15s;
+}
+.slideshow div:nth-child(1) {
+  -webkit-animation-delay: 20s;
+  animation-delay: 20s;
+}
+/* 這裏是在滑鼠覆蓋到輪播圖片時,暫停輪播的動畫效果,有需要時可以打開 */
+/* .slideshow:hover div {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+} */
+main {
+  width: 90%;
+  margin: 0 auto;
+}
+#title {
+  text-align: center;
+  padding: 1%;
+}
+#title h1 {
+  font-size: 2.5em;
+}
+#title h3 {
+  font-size: 1.1em;
+}
+#title p {
+  text-align: left;
+  font-size: 1.1em;
+}
+.history {
+  display: flex;
+  flex-direction: column;
+}
+/* 這裏製作分割綫效果 */
+.title-flex {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  color: lightslategray;
+  margin: 2em;
+  margin-bottom: 1em;
+}
+.title-flex::before,
+.title-flex::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: lightslategray;
+  margin-right: 0rem;
+  margin-left: 0rem;
+}
+/* 用大容器將圖片和照片的div包住 */
+.present {
+  margin: 1em;
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.present img {
+  max-width: 60%;
+  flex-shrink: 6;
+}
+.present .introduction {
+  height: fit-content;
+  flex-shrink: 4;
+  padding: 1em;
+}
+/* footer是最外圍的大容器 */
+/* 下面的nofunc和myinfo放在footer裏 */
+footer {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+/* 取名字叫nofunc是因爲所有鏈接點了都沒有功能(企業信息/隱私政策......) */
+#nofunc ul {
+  list-style-type: none;
+  padding: 0;
+}
+#nofunc ul li {
+  display: inline;
+  margin-right: 3em;
+}
+#nofunc a {
+  text-decoration: none;
+}
+#myinfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+#myinfo div {
+  margin-right: 2em;
+}
